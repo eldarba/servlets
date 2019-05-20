@@ -30,7 +30,7 @@ public class DateServlet extends HttpServlet {
 		out.println("current date: " + new Date());
 		out.println("<br>");
 
-		out.println("<a href=''>home</a>");
+		out.println("<a href='index.html'>home</a>");
 		out.println("<br>");
 
 		out.println("</body>");

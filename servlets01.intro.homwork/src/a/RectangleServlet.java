@@ -33,7 +33,7 @@ public class RectangleServlet extends HttpServlet {
 			out.println("<br>");
 		}
 
-		out.println("<a href=''>home</a>");
+		out.println("<a href='index.html'>home</a>");
 		out.println("<br>");
 
 		out.println("</body>");

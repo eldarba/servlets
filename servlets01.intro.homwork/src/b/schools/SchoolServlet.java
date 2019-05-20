@@ -1,4 +1,4 @@
-package b.zoo;
+package b.schools;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ZooServlet extends HttpServlet {
+public class SchoolServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
 	private String name;
 	private String address;
 	private int zipCode;
-	private List<Animal> animals = new ArrayList<>();
+	private List<Student> students = new ArrayList<>();
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
@@ -30,26 +30,30 @@ public class ZooServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Animal animal = null;
-		// get the type of animal to add
-		String animalType = req.getParameter("animalType");
-		switch (animalType) {
-		case "dog":
-			animal = new Dog();
-			break;
-		case "cat":
-			animal = new Cat();
-			break;
-		default:
-			break;
-		}
-
-		if (animal != null) {
-			this.animals.add(animal);
-		}
-
 		PrintWriter out = resp.getWriter();
-		out.println("animal added: " + animal);
+		out.println(this + "<br>");
+
+		Student student = new Student();
+		String name = req.getParameter("name");
+		student.setName(name);
+		this.students.add(student);
+		out.println("student added: " + student);
+
+	}
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		PrintWriter out = resp.getWriter();
+		out.println(this + "<br>");
+		out.println("List of Students ===" + "<br>");
+		for (Student student : students) {
+			out.println(student + "<br>");
+		}
+	}
+
+	@Override
+	public String toString() {
+		return "SchoolServlet [name=" + name + ", address=" + address + ", zipCode=" + zipCode + "]";
 	}
 
 }

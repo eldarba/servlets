@@ -1,23 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
-  <display-name>servlets01.intro.homwork</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-  </welcome-file-list>
-  <servlet>
-    <servlet-name>date servlet</servlet-name>
-    <servlet-class>a.DateServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>date servlet</servlet-name>
-    <url-pattern>/dates</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>rectangle servlet</servlet-name>
-    <servlet-class>a.RectangleServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>rectangle servlet</servlet-name>
-    <url-pattern>/rectangle</url-pattern>
-  </servlet-mapping>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>servlets01.intro.homwork</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	<servlet>
+		<servlet-name>date servlet</servlet-name>
+		<servlet-class>a.DateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>date servlet</servlet-name>
+		<url-pattern>/dates</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>rectangle servlet</servlet-name>
+		<servlet-class>a.RectangleServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>rectangle servlet</servlet-name>
+		<url-pattern>/rectangle</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>School Tel Aviv</servlet-name>
+		<servlet-class>b.schools.SchoolServlet</servlet-class>
+		<init-param>
+			<param-name>name</param-name>
+			<param-value>School Tel Aviv</param-value>
+		</init-param>
+		<init-param>
+			<param-name>address</param-name>
+			<param-value>Tel Aviv, Menachem Begin 25</param-value>
+		</init-param>
+		<init-param>
+			<param-name>zipCode</param-name>
+			<param-value>11111</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>School Tel Aviv</servlet-name>
+		<url-pattern>/school/tlv</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>School Haifa</servlet-name>
+		<servlet-class>b.schools.SchoolServlet</servlet-class>
+		<init-param>
+			<param-name>name</param-name>
+			<param-value>School Haifa</param-value>
+		</init-param>
+		<init-param>
+			<param-name>address</param-name>
+			<param-value>Haifa, HaNarkisim 19</param-value>
+		</init-param>
+		<init-param>
+			<param-name>zipCode</param-name>
+			<param-value>222222</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>School Haifa</servlet-name>
+		<url-pattern>/school/haifa</url-pattern>
+	</servlet-mapping>
 </web-app>
