@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "Srv2", urlPatterns = { "/Srv2" })
-public class Srv2Dispatch extends HttpServlet {
+public class Srv2DispatchForward extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
@@ -27,13 +27,16 @@ public class Srv2Dispatch extends HttpServlet {
 		RequestDispatcher rd = ctx.getRequestDispatcher(path);
 		rd.forward(request, response);
 
-		System.out.println("start sleep");
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+		System.out.println("count to 3 before forwarding...");
+		for (int i = 1; i <= 3; i++) {
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			System.out.print(i + " ");
 		}
-		System.out.println("finished sleep");
+		System.out.println("\nfinished sleep");
 		System.out.println("the request was forwarded to: " + path);
 
 	}
