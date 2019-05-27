@@ -29,7 +29,7 @@ public class Srv2Dispatch extends HttpServlet {
 		rd.forward(request, response);
 		System.out.println("start sleep");
 		try {
-			Thread.sleep(3000);
+			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
