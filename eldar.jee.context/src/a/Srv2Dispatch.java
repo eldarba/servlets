@@ -1,7 +1,6 @@
 package a;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -18,8 +17,8 @@ public class Srv2Dispatch extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
-		out.println("BLA BLA BLA");
+		// PrintWriter out = response.getWriter();
+		// out.println("BLA BLA BLA");
 		int r = (int) (Math.random() * 11);
 		request.setAttribute("luckyNumber", String.valueOf(r));
 
@@ -27,12 +26,14 @@ public class Srv2Dispatch extends HttpServlet {
 		String path = "/Srv3";
 		RequestDispatcher rd = ctx.getRequestDispatcher(path);
 		rd.forward(request, response);
+
 		System.out.println("start sleep");
 		try {
-			Thread.sleep(1500);
+			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		System.out.println("finished sleep");
 		System.out.println("the request was forwarded to: " + path);
 
 	}

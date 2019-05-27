@@ -18,8 +18,6 @@ public class Srv2SessionInvalidation extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		HttpSession session = request.getSession(false);
-
 		PrintWriter out = response.getWriter();
 		out.println("<html><body>");
 		out.println("<h1>Welcom to: ");
@@ -27,6 +25,7 @@ public class Srv2SessionInvalidation extends HttpServlet {
 		out.println("</h1>");
 
 		out.println("=======================================================<br>");
+		HttpSession session = request.getSession(false);
 		if (session != null) {
 			session.invalidate();
 			out.println("session with id: " + session.getId() + " invalidated<br>");

@@ -19,7 +19,6 @@ public class Srv1ContextIntro extends HttpServlet {
 			throws ServletException, IOException {
 
 		// get the context in which this servletis running
-		ServletContext ctx = getServletContext();
 
 		PrintWriter out = response.getWriter();
 		out.println("<html><body>");
@@ -27,6 +26,7 @@ public class Srv1ContextIntro extends HttpServlet {
 		out.println(request.getRequestURI());
 		out.println("</h1>");
 
+		ServletContext ctx = getServletContext();
 		// display
 		out.println("=======================================================<br>");
 		out.println("getServerInfo: " + ctx.getServerInfo() + "<br>");
