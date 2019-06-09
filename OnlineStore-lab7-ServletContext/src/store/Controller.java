@@ -3,6 +3,7 @@ package store;
 import java.io.IOException;
 
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
@@ -27,7 +28,8 @@ public class Controller extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
 		// this.store = new StoreItems();
-		getServletContext().setAttribute("storeItems", new StoreItems());
+		ServletContext ctx = getServletContext();
+		ctx.setAttribute("storeItems", new StoreItems());
 		this.supportMail = config.getInitParameter("email");
 		System.out.println(getServletName() + " initialized");
 		System.out.println("email=" + this.supportMail);
