@@ -1,0 +1,3 @@
+when creating the session filter:
+1. map the filter to: urlPatterns = { "/Controller" }
+2. you should configure the filter with annotations or in web.xml
